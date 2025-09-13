@@ -5,7 +5,7 @@ const container = document.querySelector("#container")
 
 const render = async () => {
     const jeansHTML = JeanChoices()
-    const locationsHTMl = await LocationChoices
+    const locationsHTMl = await LocationChoices()
 
     container.innerHTML = `
     ${jeansHTML}
