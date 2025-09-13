@@ -10,3 +10,9 @@ export const setOwnsBlueJeans = (chosenOwnership) => {
 export const setSocioLocationId = (chosenLocation) => {
     transientState.socioLocationId = chosenLocation
 }
+
+export const saveSurveySubmission = async () => {
+
+    console.log("Saving survey to database...")
+    console.log(transientState)
+}
