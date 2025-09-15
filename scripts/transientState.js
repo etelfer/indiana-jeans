@@ -1,5 +1,5 @@
 const transientState = {
-    ownsBlueJeans: false,
+    ownsBlueJeans: undefined,
     socioLocationId: 0
 }
 
@@ -12,7 +12,15 @@ export const setSocioLocationId = (chosenLocation) => {
 }
 
 export const saveSurveySubmission = async () => {
-
-    console.log("Saving survey to database...")
-    console.log(transientState)
+    if (transientState.ownsBlueJeans === undefined || transientState.socioLocationId === 0)
+        return window.alert("Complete all questions on survey!")
+    
+    const postOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(transientState)
+    }
+    const response = await fetch("http://localhost:8088/submissions", postOptions)
 }
