@@ -23,4 +23,6 @@ export const saveSurveySubmission = async () => {
         body: JSON.stringify(transientState)
     }
     const response = await fetch("http://localhost:8088/submissions", postOptions)
+    const newSubmissionEvent = new CustomEvent("newSubmissionCreated")
+    document.dispatchEvent(newSubmissionEvent)
 }
